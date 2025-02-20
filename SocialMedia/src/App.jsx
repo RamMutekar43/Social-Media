@@ -12,6 +12,7 @@ function App() {
     <Box bg={bg} className=" h-screen">
       <h1>Social Media</h1>
       <Button onClick={toggleColorMode} >Toggle</Button>
+      
     </Box>
   )
 }
