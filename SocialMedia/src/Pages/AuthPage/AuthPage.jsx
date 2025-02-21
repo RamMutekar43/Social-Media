@@ -4,12 +4,13 @@ import AuthForm from '../AuthForm/AuthForm'
 
 const AuthPage = () => {
   return (
+    <>
     <Flex alignItems={"center"} justifyContent={"center"} minH={"100vh"} p={4} color={"white"}>
         <Container minW={"container.md"} p={0} >
             <Flex alignItems={"center"} justifyContent={"center"} >
                 {/* left side image */}
                 <Box display={{base:"none", md:"block"}}>
-                    <Image src='/Login-bro.png' h={600}/>
+                    <Image src='/Login.png' h={600}/>
                 </Box>
 
                 {/* right side form */}
@@ -20,6 +21,7 @@ const AuthPage = () => {
             </Flex>
         </Container>
     </Flex>
+    </>
   )
 }
 
