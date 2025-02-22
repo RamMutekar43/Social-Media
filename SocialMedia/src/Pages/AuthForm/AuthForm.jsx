@@ -13,6 +13,7 @@ const AuthForm = () => {
   const  navigate = useNavigate()
 
   const handleAuth = () => {
+    // console.log(inputs);
     if(!inputs.email || !inputs.password){
       alert('Please fill all the fields')
       return;
@@ -30,7 +31,7 @@ const AuthForm = () => {
         />
         <Input type='password' fontSize={14} placeholder='Password'
         value={inputs.password}
-        onCanPlay={(e)=>setInputs({...inputs,password:e.target.value})}
+        onChange={(e)=>setInputs({...inputs,password:e.target.value})}
         />
 
         {(!isLogin)?<Input type='password' fontSize={14} placeholder='Confirm Password'

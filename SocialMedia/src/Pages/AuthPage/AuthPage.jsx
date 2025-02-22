@@ -14,7 +14,7 @@ const AuthPage = () => {
                 </Box>
 
                 {/* right side form */}
-                <VStack wordSpacing={4} align={"stretch"} w={'1/4'} mr={10}>
+                <VStack wordSpacing={4} align={"stretch"} w={{base:"50vw", md:"25vw"}} mr={10}>
                     <AuthForm/>
                     <Box textAlign={"center"}>Get the App.</Box>
                 </VStack>
