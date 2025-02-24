@@ -3,7 +3,7 @@ import { Box, Button, Flex, Input, Text } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { InputGroup } from '../ui/input-group';
 
-const PostFooter = () => {
+const PostFooter = ({username}) => {
     const [liked,setLiked] = useState(false);
     const [likes,setLikes] = useState(1000);
     
@@ -32,7 +32,7 @@ const PostFooter = () => {
         {likes} likes
     </Text>
     <Text fontWeight={700} fontSize={"sm"}>
-        this_is_alita{" "}
+        {username}{" "}
         <Text as={'span'} fontWeight={400}>
             Feeling good
         </Text>
