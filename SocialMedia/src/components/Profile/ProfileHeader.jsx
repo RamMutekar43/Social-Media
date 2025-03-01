@@ -10,13 +10,13 @@ const ProfileHeader = () => {
         mx={'auto'} 
         justifySelf={"center"} 
         alignSelf={"flex-start"} 
-        h={{base:'64px',sm:"130px"}} 
-        w={{base:'64px',sm:"130px"}} 
+        h={{base:'64px',sm:"100px",md:"130px"}} 
+        w={{base:'64px',sm:"100px",md:"130px"}} 
         border={'2px solid gray'} 
         borderRadius={'full'} size={'full'}
         >
             <Avatar.Root>
-            <Avatar.Image name="this is alita" src="/post1.avif" alt="this is alita" size="full"/>
+            <Avatar.Image name="this is alita" src="/post1.avif" alt="this is alita" />
             </Avatar.Root>
         </AvatarGroup>
 
@@ -28,13 +28,36 @@ const ProfileHeader = () => {
             >
                 <Text fontSize={{base:'sm',md:'lg'}}>this_is_alita</Text>
                 <Flex gap={4} alignItems={'center'} justifyContent={'center'} ml={{base:2,sm:4}}>
-                    <Button bg={'white'} color={'black'} _hover={{bg:"whiteAlpha.800"}} size={{base:'xs',md:"sm"}}>
+                    <Button 
+                    bg={'white'} 
+                    color={'black'} 
+                    _hover={{bg:"whiteAlpha.800"}} 
+                    size={{base:'xs',md:"sm"}}
+                    >
                         Edit Profile
                     </Button>
                 </Flex>
             </Flex>
 
+            <Flex alignItems={'center'} gap={{base:2,sm:4}}>
+                <Text fontSize={{base:'xs',md:'sm'}}>
+                    <Text as={'span'} fontWeight={'bold'} mr={1}>13</Text>
+                    Posts
+                </Text>
+                <Text fontSize={{base:'xs',md:'sm'}}>
+                    <Text as={'span'} fontWeight={'bold'} mr={1}>296</Text>
+                    Followers
+                </Text>
+                <Text fontSize={{base:'xs',md:'sm'}}>
+                    <Text as={'span'} fontWeight={'bold'} mr={1}>304</Text>
+                    Following
+                </Text>
+            </Flex>
             
+            <Flex alignItems={'center'} gap={4}>
+                <Text fontSize={"sm"} fontWeight={"bold"}>this_is_alita</Text>
+            </Flex>
+            <Text fontSize={"sm"} >A model can be a representation of something, a person who poses for an artist, or a type of product.</Text>
         </VStack>
     </Flex>
     </>
