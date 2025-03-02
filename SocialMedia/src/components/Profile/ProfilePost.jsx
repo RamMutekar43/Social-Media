@@ -6,6 +6,7 @@ import { FaComment } from 'react-icons/fa'
 import { DialogRoot, DialogTrigger, DialogContent,DialogHeader,DialogTitle,DialogBody,DialogCloseTrigger } from '../ui/dialog';
 import { MdDelete } from 'react-icons/md'
 import Comment from '../Comment/Comment'
+import PostFooter from '../FeedPosts/PostFooter'
 
 const ProfilePost = ({img}) => {
   return (
@@ -81,13 +82,15 @@ const ProfilePost = ({img}) => {
 
               <Separator size={'md'}/>
 
-              <VStack pb={2} w={'full'} alignItems={'start'} maxH={'350px'} overflowY={'auto'}>
+              <VStack my={2} w={'full'} alignItems={'start'} maxH={'350px'} overflowY={'auto'}>
               <Comment createdAt={'1d ago'} profilePic={'/luffy.avif'} text={'Nice picture dude.'} username={'luffy'}/>
               <Comment createdAt={'12h ago'} profilePic={'/jack.avif'} text={'Looks pretty'} username={'jack'}/>
               <Comment createdAt={'3h ago'} profilePic={'alice.avif'} text={'nice one'} username={'alice'}/>
               </VStack>
 
               <Separator size={'sm'}/>
+
+              <PostFooter isProfilePage={true}/>
 
             </Flex>
           </Flex>
