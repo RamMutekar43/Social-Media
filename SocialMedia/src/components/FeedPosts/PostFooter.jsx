@@ -3,7 +3,7 @@ import { Box, Button, Flex, Input, Text } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { InputGroup } from '../ui/input-group';
 
-const PostFooter = ({username}) => {
+const PostFooter = ({username,isProfilePage}) => {
     const [liked,setLiked] = useState(false);
     const [likes,setLikes] = useState(1000);
     
@@ -18,7 +18,7 @@ const PostFooter = ({username}) => {
     }
   return (
     <>
-    <Box mb={10}>
+    <Box mt={'auto'}>
     <Flex alignItems={"center"} gap={5} w={"full"} pt={0} mb={2} mt={4}>
         <Box onClick={handleLike} fontSize={18} cursor={"pointer"}>
             {!liked ? (<NotificationsLogo/>):(<UnlikeLogo/>)}
@@ -31,15 +31,19 @@ const PostFooter = ({username}) => {
     <Text fontWeight={600} fontSize={"sm"}>
         {likes} likes
     </Text>
-    <Text fontWeight={700} fontSize={"sm"}>
+    {!isProfilePage && (
+        <>
+        <Text fontWeight={700} fontSize={"sm"}>
         {username}{" "}
         <Text as={'span'} fontWeight={400}>
             Feeling good
         </Text>
-    </Text>
-    <Text color={"gray"} fontSize={"sm"}>
-        View all 1,000 comments
-    </Text>
+        </Text>
+        <Text color={"gray"} fontSize={"sm"}>
+            View all 1,000 comments
+        </Text>
+        </>
+    )}
 
     <Flex alignItems={'center'}  w={'full'}>
         <InputGroup w={'full'}
