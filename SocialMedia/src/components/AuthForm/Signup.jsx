@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, {use, useState} from 'react'
 import { Box, Button, Input } from '@chakra-ui/react' 
 import { InputGroup } from '../ui/input-group'
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io'
+import useSignUpWithEmailAndPassword from '../../hooks/useSignUpWithEmailAndPassword'
 
 
 
@@ -15,6 +16,7 @@ const Signup = () => {
     })
     
     const [showPassword, setShowPassword] = useState(false)
+    const [loading, error, signup ] = useSignUpWithEmailAndPassword()
 
   return (
     <>
@@ -60,7 +62,7 @@ const Signup = () => {
     size={'sm'}
     />
     </InputGroup>
-    <Button bg={"blue.500"} w={"full"} fontSize={"sm"} >Sign up</Button>
+    <Button bg={"blue.500"} w={"full"} fontSize={"sm"} onClick={()=>signup(inputs)}>Sign up</Button>
     </>
   )
 }
