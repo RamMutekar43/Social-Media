@@ -1,5 +1,5 @@
 import React, {use, useState} from 'react'
-import { Box, Button, Input } from '@chakra-ui/react' 
+import { Alert, Box, Button, Input } from '@chakra-ui/react' 
 import { InputGroup } from '../ui/input-group'
 import { IoMdEye, IoMdEyeOff } from 'react-icons/io'
 import useSignUpWithEmailAndPassword from '../../hooks/useSignUpWithEmailAndPassword'
@@ -16,7 +16,7 @@ const Signup = () => {
     })
     
     const [showPassword, setShowPassword] = useState(false)
-    const [loading, error, signup ] = useSignUpWithEmailAndPassword()
+    const {loading, error, signup } = useSignUpWithEmailAndPassword()
 
   return (
     <>
@@ -62,7 +62,15 @@ const Signup = () => {
     size={'sm'}
     />
     </InputGroup>
-    <Button bg={"blue.500"} w={"full"} fontSize={"sm"} onClick={()=>signup(inputs)}>Sign up</Button>
+    {error && (
+        <Alert.Root status='error' fontSize={13} p={2} borderRadius={4}>
+            <Alert.Indicator />
+            <Alert.Title>There was an error processing your request</Alert.Title>
+        </Alert.Root>
+    )}
+    <Button bg={"blue.500"} w={"full"} fontSize={"sm"} 
+    // loading
+    onClick={()=>signup(inputs)}>Sign up</Button>
     </>
   )
 }

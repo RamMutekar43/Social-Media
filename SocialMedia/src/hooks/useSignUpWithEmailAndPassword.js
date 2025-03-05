@@ -1,5 +1,6 @@
-import auth from '../firebase/firebase'
+import { firestore, auth } from '../firebase/firebase'
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { setDoc, doc } from 'firebase/firestore';
 
 const useSignUpWithEmailAndPassword = () => {
     const [
@@ -16,7 +17,7 @@ const useSignUpWithEmailAndPassword = () => {
         }
         try {
             const newUser = await createUserWithEmailAndPassword(inputs.email,inputs.password)
-            if(!newUser && erroe){
+            if(!newUser && error){
                 console.log(error)
                 return;
             } 
@@ -33,13 +34,16 @@ const useSignUpWithEmailAndPassword = () => {
                     posts:[],
                     createdAt:Date.now(),
                 }
+
+                await setDoc(doc(firestore, 'users',newUser.user.uid),userDoc);
+                localStorage.setItem("user-info",JSON.stringify(userDoc));
             }
         } catch (error) {
             console.log(error)
         }
     }
 
-  return {loading,error,signup}
+  return {loading,error,signup};
 }
 
-export default useSignUpWithEmailAndPassword
+export default useSignUpWithEmailAndPassword;
