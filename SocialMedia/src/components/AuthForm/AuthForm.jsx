@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Login from './Login'
 import Signup from './Signup'
 import GoogleAuth from './GoogleAuth'
+import { Toaster } from '../ui/toaster'
 
 
 const AuthForm = () => {
@@ -39,6 +40,7 @@ const AuthForm = () => {
         </Box>
       </Flex>
     </Box>
+    <Toaster/>
     </>
     
   )
