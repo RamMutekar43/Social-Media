@@ -3,8 +3,11 @@ import React from 'react'
 import { BiLogOut } from 'react-icons/bi'
 import { Link as RouterLink } from 'react-router-dom'
 import { Tooltip } from '../ui/tooltip'
+import useLogout from '../../hooks/useLogout'
+
 
 const Sidebar = () => {
+  const {handleLogout, isLoggingOut, error} = useLogout();
   return (
     <>
     <Box
@@ -58,10 +61,11 @@ const Sidebar = () => {
 					  >
 						  <BiLogOut size={25} />
 						  <Button
-							  display={{ base: "none", md: "block" }}
-							  variant={"ghost"}
-							  _hover={{ bg: "transparent" }}
-							  // isLoading={isLoggingOut}
+              onClick={handleLogout}
+							display={{ base: "none", md: "block" }}
+						  variant={"ghost"}
+						  _hover={{ bg: "transparent" }}
+						  loading={isLoggingOut}
 						  >
 							Logout
 						  </Button>
