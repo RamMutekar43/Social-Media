@@ -10,7 +10,7 @@ const useLogout = () => {
         try {
             await signOut();
             localStorage.removeItem('user-info')
-            console.log('User is logged out.')
+            // showToast('', 'User is logged out.', "success")
         } catch (error) {
             showToast("Error", error.message, "error")
         }

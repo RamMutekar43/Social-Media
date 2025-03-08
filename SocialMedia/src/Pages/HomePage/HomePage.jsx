@@ -2,9 +2,11 @@ import { Box, Container, Flex } from '@chakra-ui/react'
 import React from 'react'
 import FeedPosts from '../../components/FeedPosts/FeedPosts'
 import SuggestedUsers from '../../components/SuggestedUsers/SuggestedUsers'
+import { Toaster } from '../../components/ui/toaster'
 const HomePage = () => {
   return (
     <>
+    <Toaster/>
     <Container maxW={"3/4"}>
       <Flex gap={20}>
         <Box flex={2} py={10}>
