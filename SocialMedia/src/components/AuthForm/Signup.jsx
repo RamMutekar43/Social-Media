@@ -69,7 +69,7 @@ const Signup = () => {
         </Alert.Root>
     )}
     <Button bg={"blue.500"} w={"full"} fontSize={"sm"} 
-    // loading
+    loading={loading}
     onClick={()=>signup(inputs)}>Sign up</Button>
     </>
   )
