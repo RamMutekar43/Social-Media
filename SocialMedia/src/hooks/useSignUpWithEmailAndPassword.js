@@ -12,8 +12,7 @@ const useSignUpWithEmailAndPassword = () => {
 
     const signup = async (inputs)=>{
         if(!inputs.email || !inputs.password || !inputs.username || !inputs.fullname){
-
-            showToast("Error", "Please fill the fields", "error");
+            showToast("Error", "Please fill all the fields", "error");
             return
         }
 
