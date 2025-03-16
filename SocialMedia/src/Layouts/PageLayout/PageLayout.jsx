@@ -4,14 +4,16 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase/firebase';
+import Navbar from '../../components/Navbar/Navbar';
 
 const PageLayout = ({children}) => {
     const {pathname} = useLocation()
     const [user, loading, error] = useAuthState(auth);
     const canRenderSidebar = pathname!=='/auth' && user;
+    const canRenderNavbar = !user && !loading && pathname!=='/auth';
     return (
         <>
-        <Flex>
+        <Flex flexDir={canRenderNavbar ? "column" : "row"}>
             {/* left  sidebar */}
             {canRenderSidebar? (
                 <Box w={{base:"70px",md:"240px"}}>
@@ -19,6 +21,9 @@ const PageLayout = ({children}) => {
                 </Box>
             ) : null
             }
+
+            {/* Navbar */}
+            {canRenderNavbar  ? <Navbar/>: null}
     
             {/* right side conntent */}
             <Box flex={1} w={{base:"calc(100% -70px)",md:"calc(100% -240px)"}}>
