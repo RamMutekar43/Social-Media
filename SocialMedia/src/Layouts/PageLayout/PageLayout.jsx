@@ -1,5 +1,5 @@
 import Sidebar from '../../components/Sidebar/Sidebar'
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Flex, Spinner } from '@chakra-ui/react'
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -11,6 +11,9 @@ const PageLayout = ({children}) => {
     const [user, loading, error] = useAuthState(auth);
     const canRenderSidebar = pathname!=='/auth' && user;
     const canRenderNavbar = !user && !loading && pathname!=='/auth';
+
+    const checkingUserIsAuth = !user && loading ;
+    if(checkingUserIsAuth) return <PageLayoutSpinner/>
     return (
         <>
         <Flex flexDir={canRenderNavbar ? "column" : "row"}>
@@ -35,3 +38,13 @@ const PageLayout = ({children}) => {
 }
 
 export default PageLayout
+
+const PageLayoutSpinner = ()=>{
+    return(
+        <>
+        <Flex flexDirection={'column'} h={'100vh'} alignItems={'center'} justifyContent={'center'}>
+            <Spinner size={'xl'}/>
+        </Flex>
+        </>
+    )
+}
