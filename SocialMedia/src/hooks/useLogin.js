@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth, firestore } from '../firebase/firebase';
 import { getDoc, doc } from 'firebase/firestore';
@@ -25,8 +25,6 @@ const useLogin = () => {
 
         try {
             const userCred = await signInWithEmailAndPassword(inputs.email, inputs.password);
-            // console.log(userCred);
-            
             if(userCred){
                 const docRef = doc(firestore, "users", userCred.user.uid);
                 const docSnap = await getDoc(docRef);
