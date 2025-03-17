@@ -28,7 +28,11 @@ const Login = () => {
           <Alert.Title>There was an error processing your request</Alert.Title>
       </Alert.Root>
     )}
-    <Button bg={"blue.500"} w={"full"} fontSize={"sm"} onClick={()=>login(inputs)}>Log in</Button>
+    <Button 
+    bg={"blue.500"} w={"full"} fontSize={"sm"} 
+    onClick={()=>login(inputs)}
+    loading={loading}
+    >Log in</Button>
     </>
   )
 }
